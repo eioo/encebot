@@ -1,0 +1,26 @@
+{
+  "name": "ence-bot",
+  "version": "1.0.0",
+  "main": "app.ts",
+  "license": "MIT",
+  "scripts": {
+    "dev": "ts-node-dev --transpileOnly --respawn src/index.ts",
+    "start": "yarn dev"
+  },
+  "dependencies": {
+    "@types/axios": "^0.14.0",
+    "@types/cheerio": "^0.22.10",
+    "@types/dateformat": "^3.0.0",
+    "@types/dotenv": "^6.1.0",
+    "@types/htmlparser2": "^3.7.31",
+    "@types/node-telegram-bot-api": "^0.30.4",
+    "axios": "^0.18.0",
+    "cheerio": "^1.0.0-rc.2",
+    "dateformat": "^3.0.3",
+    "dotenv": "^6.2.0",
+    "node-telegram-bot-api": "^0.30.0",
+    "typescript": "^3.2.2",
+    "ts-node-dev": "^1.0.0-pre.32",
+    "tslint-config-prettier": "^1.17.0"
+  }
+}
