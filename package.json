@@ -14,7 +14,7 @@
     "@types/dotenv": "^6.1.0",
     "@types/htmlparser2": "^3.7.31",
     "@types/node-telegram-bot-api": "^0.30.4",
-    "axios": "^0.18.0",
+    "axios": "^0.18.1",
     "cheerio": "^1.0.0-rc.2",
     "dateformat": "^3.0.3",
     "dotenv": "^6.2.0",
