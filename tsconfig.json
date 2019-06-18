@@ -2,7 +2,7 @@
   "compilerOptions": {
     "module": "commonjs",
     "target": "es5",
-    "lib": ["es2015", "es2016.array.include"],
+    "lib": ["es2017", "es2016.array.include"],
     "sourceMap": true,
     "moduleResolution": "node",
     "strictNullChecks": true,
