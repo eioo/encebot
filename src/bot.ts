@@ -109,7 +109,7 @@ export class EnceBot {
         if (tracked) {
           if (tracked.date !== match.date) {
             const message = this.formatter.dateChange(tracked, match);
-            this.sendToAll(message);
+            this.reply(chatId, message);
           }
         } else {
           newMatches.push(match);
@@ -121,7 +121,7 @@ export class EnceBot {
 
       if (newMatches.length) {
         const message = this.formatter.upcomingMatches(newMatches);
-        this.sendToAll(message);
+        this.reply(chatId, message);
       }
     }
   }
