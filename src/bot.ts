@@ -61,9 +61,7 @@ export class EnceBot {
       if (args.length === 1) {
         if (['enable', 'disable'].includes(args[0])) {
           const newState = args[0] === 'enable' ? true : false;
-          const response = `Match notifications for *${this.bestTeam}* ${
-            args[0]
-          }d.`;
+          const response = `Match notifications for *${this.bestTeam}* ${args[0]}d.`;
 
           await database.setNotificationState(msg.chat.id, newState);
           this.chats = await database.getChats();
@@ -131,12 +129,7 @@ export class EnceBot {
 
     this.bot.sendMessage(chatId, text, {
       parse_mode: 'Markdown',
+      disable_notification: true,
     });
-  }
-
-  private sendToAll(text: string) {
-    for (const chatId of Object.keys(this.chats)) {
-      this.reply(chatId, text);
-    }
   }
 }
