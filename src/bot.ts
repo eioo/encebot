@@ -36,7 +36,7 @@ export class EnceBot {
     log('[bot] started');
   }
 
-  private messageHandler() {
+  private messageHandler = () => {
     this.bot.on('message', msg => {
       if (!msg.from || msg.from.is_bot) {
         return;
@@ -46,18 +46,13 @@ export class EnceBot {
     this.bot.onText(/^\/ence/, async msg => {
       const args = (msg.text || '').split(' ').slice(1);
 
+      // Show matches
       if (args.length === 0) {
         const upcoming = await this.getUpcomingMatchesForTeam();
-
-        this.bot.sendMessage(
-          msg.chat.id,
-          this.formatter.upcomingMatches(upcoming),
-          {
-            parse_mode: 'Markdown',
-          }
-        );
+        this.reply(msg, this.formatter.upcomingMatches(upcoming));
       }
 
+      // Enable / disable bot
       if (args.length === 1) {
         if (['enable', 'disable'].includes(args[0])) {
           const newState = args[0] === 'enable' ? true : false;
@@ -70,11 +65,11 @@ export class EnceBot {
         }
       }
     });
-  }
+  };
 
   private async getUpcomingMatchesForTeam() {
     const matches = await HLTV.getMatches();
-    const upcoming: UpcomingMatch[] = matches.filter(
+    const upcoming = matches.filter(
       m =>
         !m.live &&
         m.team1 &&
@@ -82,7 +77,7 @@ export class EnceBot {
         [m.team1, m.team2].some(
           x => x.name.toLowerCase() === this.bestTeam.toLowerCase()
         )
-    );
+    ) as UpcomingMatch[];
 
     return upcoming;
   }
