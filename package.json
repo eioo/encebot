@@ -1,7 +1,7 @@
 {
-  "name": "encebot",
+  "name": "ogbot",
   "version": "1.0.0",
-  "main": "app.ts",
+  "main": "src/index.ts",
   "license": "MIT",
   "scripts": {
     "env": "sync-dotenv",

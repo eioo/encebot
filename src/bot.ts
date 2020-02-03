@@ -8,8 +8,8 @@ import { MessageFormatter } from './messageFormatter';
 import { IChats } from './types';
 import { log } from './utils';
 
-export class EnceBot {
-  public bestTeam = 'ENCE';
+export class OGBot {
+  public bestTeam = 'OG';
   private bot: TelegramBot;
   private formatter: MessageFormatter;
   private chats: IChats;
@@ -43,7 +43,7 @@ export class EnceBot {
       }
     });
 
-    this.bot.onText(/^\/ence/, async msg => {
+    this.bot.onText(/^\/og/, async msg => {
       const args = (msg.text || '').split(' ').slice(1);
 
       // Show matches
@@ -55,12 +55,12 @@ export class EnceBot {
       // Enable / disable bot
       if (args.length === 1) {
         if (['enable', 'disable'].includes(args[0])) {
-          const newState = args[0] === 'enable' ? true : false;
           const response = `Match notifications for *${this.bestTeam}* ${args[0]}d.`;
-
-          await database.setNotificationState(msg.chat.id, newState);
+          await database.setNotificationState(
+            msg.chat.id,
+            args[0] === 'enable'
+          );
           this.chats = await database.getChats();
-
           return this.reply(msg, response);
         }
       }

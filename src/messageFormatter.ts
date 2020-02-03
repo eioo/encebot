@@ -1,10 +1,10 @@
 import { UpcomingMatch } from 'hltv/lib/models/UpcomingMatch';
 
-import { EnceBot } from './bot';
+import { OGBot } from './bot';
 import { timestamp } from './utils';
 
 export class MessageFormatter {
-  constructor(public bot: EnceBot) {}
+  constructor(public bot: OGBot) {}
 
   public dateChange(oldMatch: UpcomingMatch, newMatch: UpcomingMatch) {
     if (
@@ -46,8 +46,6 @@ export class MessageFormatter {
       return `*Upcoming ${this.bot.bestTeam} matches*\n` + text;
     }
 
-    return `*No upcoming ${
-      this.bot.bestTeam
-    } matches*\nWill notify when there is!`;
+    return `*No upcoming ${this.bot.bestTeam} matches*\nWill notify when there is!`;
   }
 }
