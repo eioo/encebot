@@ -27,5 +27,8 @@
     "hooks": {
       "pre-commit": "npm run env"
     }
+  },
+  "devDependencies": {
+    "@types/pg": "^7.14.1"
   }
 }

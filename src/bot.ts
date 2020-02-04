@@ -43,7 +43,7 @@ export class OGBot {
       }
     });
 
-    this.bot.onText(/^\/og/, async msg => {
+    this.bot.onText(config.cmdRegex, async msg => {
       const args = (msg.text || '').split(' ').slice(1);
 
       // Show matches

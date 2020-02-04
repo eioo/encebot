@@ -1,4 +1,10 @@
+import * as dotenv from 'dotenv';
+
+dotenv.config();
+
 const config = {
+  teamName: 'OG',
+  cmdRegex: /^\/og/,
   botToken: process.env.BOT_TOKEN || '',
   pg: {
     host: process.env.PG_HOST || 'localhost',
